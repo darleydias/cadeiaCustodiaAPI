@@ -15,8 +15,8 @@ class CreateRedesSocialsTable extends Migration
     {
         Schema::create('redes_socials', function (Blueprint $table) {
             $table->increments('rede_id');
-            $table->integer('id_tipoRede');
-            $table->string('rede_identificador');
+            $table->integer('id_tipoRede')->required();;
+            $table->string('rede_identificador')->required();;
             $table->integer('env_id')->unsigned();
             $table->foreign('env_id')->references('env_id')->on('envolvidos');
             $table->timestamps('');

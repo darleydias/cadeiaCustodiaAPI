@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParticipantesTable extends Migration
+class CreateLocalPrisaosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateParticipantesTable extends Migration
      */
     public function up()
     {
-        Schema::create('participantes', function (Blueprint $table) {
-            $table->id();
+        Schema::create('local_prisaos', function (Blueprint $table) {
+            $table->increments('localPrisao_id');
+            $table->string('localPrisao_nome');
+            
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateParticipantesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('participantes');
+        Schema::dropIfExists('local_prisaos');
     }
 }

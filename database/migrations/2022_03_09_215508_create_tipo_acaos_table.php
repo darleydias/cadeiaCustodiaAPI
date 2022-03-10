@@ -4,17 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocalPrisaosTable extends Migration
+class CreateTipoAcaosTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Cumprimento de MBA
+     * Cumprimento de MP
+     * Perícia técnica
+     * MOvimentaçao do vestígio
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('local_prisaos', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tipo_acaos', function (Blueprint $table) {
+            $table->increments('tipoAcao_id');
+            $table->integer('acao_nome')->required();
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateLocalPrisaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('local_prisaos');
+        Schema::dropIfExists('tipo_acaos');
     }
 }

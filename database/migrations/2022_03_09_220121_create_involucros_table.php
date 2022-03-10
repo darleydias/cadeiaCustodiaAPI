@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTipoPessoasTable extends Migration
+class CreateInvolucrosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTipoPessoasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_envolvidos', function (Blueprint $table) {
-            $table->increments('tipoEnv_id');
-            $table->string('tipoEnv_escri');
+        Schema::create('involucros', function (Blueprint $table) {
+            $table->increments('involucro_id');
+            $table->string('involucro_lacre')->required();;
+            $table->string('involucro_QRCodeath')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateTipoPessoasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_pessoas');
+        Schema::dropIfExists('involucros');
     }
 }

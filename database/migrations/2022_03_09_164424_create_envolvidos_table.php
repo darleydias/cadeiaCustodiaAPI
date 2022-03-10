@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlvosTable extends Migration
+class CreateEnvolvidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,9 +22,15 @@ class CreateAlvosTable extends Migration
             $table->string('env_CPF')->nullable();
             $table->string('env_RG')->nullable();
             $table->string('env_naturalidade')->nullable();
+
+            $table->integer('tipoEnv_id')->unsigned();
+            $table->foreign('tipoEnv_id')->references('tipoEnv_id')->on('tipo_envolvidos');
+            
+            $table->integer('end_id')->unsigned();
+            $table->foreign('end_id')->references('end_id')->on('enderecos');
+
             $table->timestamps();
-            $table->integer('caso_id')->unsigned();
-            $table->foreign('caso_id')->references('caso_id')->on('casos');
+            
             
         });
     }
@@ -36,6 +42,6 @@ class CreateAlvosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alvos');
+        Schema::dropIfExists('envolvidos');
     }
 }

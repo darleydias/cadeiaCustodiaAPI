@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParticipanteAcaosTable extends Migration
+class CreateCidadesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateParticipanteAcaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('participante_acaos', function (Blueprint $table) {
-            $table->id();
+        Schema::create('cidades', function (Blueprint $table) {
+            $table->increments('cidade_id');
+            $table->string('cidade_nome')->required();;
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateParticipanteAcaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('participante_acaos');
+        Schema::dropIfExists('cidades');
     }
 }

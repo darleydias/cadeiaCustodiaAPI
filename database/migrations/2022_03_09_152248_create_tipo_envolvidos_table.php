@@ -4,17 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAcaosTable extends Migration
+class CreateTipoEnvolvidosTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Testemunha
+     * Investigado
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('acaos', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tipo_envolvidos', function (Blueprint $table) {
+            $table->increments('tipoEnv_id');
+            $table->string('tipoEnv_descri')->required();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateAcaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acaos');
+        Schema::dropIfExists('tipo_envolvidos');
     }
 }

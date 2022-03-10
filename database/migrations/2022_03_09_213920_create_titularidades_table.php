@@ -18,7 +18,7 @@ class CreateTitularidadesTable extends Migration
             $table->integer('titular_id')->unsigned();
             $table->foreign('titular_id')->references('titular_id')->on('titulars');
             $table->integer('invest_id')->unsigned();
-            $table->foreign('invest_id')->references('invest_id')->on('investicacoes');
+            $table->foreign('invest_id')->references('invest_id')->on('investigacoes');
             $table->timestamps();
         });
     }

@@ -16,6 +16,7 @@ class CreateTitularsTable extends Migration
         Schema::create('titulars', function (Blueprint $table) {
             $table->increments('titular_id');
             $table->string('titular_nome');
+            $table->string('titulat_matricula');
             $table->timestamps();
         });
     }

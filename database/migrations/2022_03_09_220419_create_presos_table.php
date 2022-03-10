@@ -14,7 +14,23 @@ class CreatePresosTable extends Migration
     public function up()
     {
         Schema::create('presos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('preso_id');
+
+            $table->integer('acao_id')->unsigned();
+            $table->foreign('acao_id')->references('acao_id')->on('acaos');
+            $table->integer('localPrisao_id')->unsigned();
+            $table->foreign('localPrisao_id')->references('localPrisao_id')->on('local_prisaos');
+            
+            $table->string('preso_nomeCompleto')->required();
+            $table->string('preso_sexo')->required();
+            $table->string('preso_nomeMae')->nullable();
+            $table->string('preso_dtNasc')->nullable();
+            $table->string('preso_CPF')->nullable();
+            $table->string('preso_RG')->nullable();
+            $table->string('preso_naturalidade')->nullable();
+            
+
+
             $table->timestamps();
         });
     }

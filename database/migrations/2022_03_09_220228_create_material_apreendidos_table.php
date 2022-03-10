@@ -14,7 +14,19 @@ class CreateMaterialApreendidosTable extends Migration
     public function up()
     {
         Schema::create('material_apreendidos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('matApreendido_id');
+            $table->text('matApreendido_descri')->required();
+            $table->integer('matApreendido_quant')->required();
+
+            $table->integer('involucro_id')->unsigned();
+            $table->foreign('involucro_id')->references('involucro_id')->on('involucros');
+
+            $table->integer('acao_id')->unsigned();
+            $table->foreign('acao_id')->references('acao_id')->on('acaos');
+
+            $table->integer('env_id')->unsigned();
+            $table->foreign('env_id')->references('env_id')->on('envolvidos');
+
             $table->timestamps();
         });
     }
